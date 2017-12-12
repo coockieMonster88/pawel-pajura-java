@@ -49,6 +49,6 @@ public class CollectionTestSuite {
         //When
         List result2 = ext2.exterminate((ArrayList<Integer>) list);
         //Then
-        Assert.assertEquals(12,result2.size());
+        Assert.assertEquals(0,result2.size());
     }
 }

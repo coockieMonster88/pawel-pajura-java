@@ -11,11 +11,12 @@ public class OddNumbersExterminator {
     }
 
     public List exterminate(ArrayList<Integer> numbers) {
+        ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < numbers.size(); i++) {
             if (i % 2 == 0) {
                 numbers.add(i);
             }
         }
-        return numbers;
+        return result;
     }
 }
