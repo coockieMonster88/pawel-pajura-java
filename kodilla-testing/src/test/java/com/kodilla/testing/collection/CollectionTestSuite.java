@@ -27,10 +27,10 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList () {
         //Given
-        List <Integer> list = new ArrayList();
+        List <Integer> list = new ArrayList<>();
         OddNumbersExterminator ext = new OddNumbersExterminator();
         //When
-        List <Integer> result = ext.exterminate((ArrayList<Integer>) list);
+        List <Integer> result = ext.exterminate( list);
         //Then
         Assert.assertEquals(0, result.size());
     }
@@ -38,7 +38,7 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList () {
         //Given
-        List <Integer> list = new ArrayList();
+        List <Integer> list = new ArrayList<>();
         list.add(2);
         list.add(5);
         list.add(8);
