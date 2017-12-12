@@ -14,7 +14,7 @@ public class OddNumbersExterminator {
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < numbers.size(); i++) {
             if (i % 2 == 0) {
-                numbers.add(i);
+                result.add(i);
             }
         }
         return result;
