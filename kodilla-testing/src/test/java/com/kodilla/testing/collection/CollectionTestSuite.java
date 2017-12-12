@@ -47,7 +47,7 @@ public class CollectionTestSuite {
         list.add(15);
         OddNumbersExterminator ext2 = new OddNumbersExterminator();
         //When
-        List result2 = ext2.exterminate((ArrayList<Integer>) list);
+        List result2 = ext2.exterminate(list);
         //Then
         Assert.assertEquals(3,result2.size());
     }
