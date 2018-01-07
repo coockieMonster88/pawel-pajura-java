@@ -38,7 +38,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(squareTest);
 
         //Then
-       // Assert.assertEquals("kolo", ((Circle)shapeCollector.getFigure(0)).getShapeName());
+        Assert.assertEquals("kolo", ((Circle)shapeCollector.getFigure(0)).getShapeName());
     }
 
 
