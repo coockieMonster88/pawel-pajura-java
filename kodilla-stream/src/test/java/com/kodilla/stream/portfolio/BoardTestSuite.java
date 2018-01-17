@@ -156,6 +156,9 @@ public class BoardTestSuite {
                 .average()
                 .orElse(0.0);
 
+        //Then
+        Assert.assertEquals(1,project);
+
 
     }
 }
