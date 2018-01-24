@@ -3,15 +3,11 @@ package com.kodilla.exception.test;
 
     public class FirstChallenge {
 
-        public double divide(double a, double b)  {
-
-            try {
-                double result = a/b;
-
-            } catch (ArithmeticException e) {
-                System.out.println("Invalid operation " + e);
+        public double divide(double a, double b) throws ArithmeticException {
+            if(b == 0){
+                throw new ArithmeticException();
             }
-            return a/b;
+            return a / b;
         }
 
         /**
@@ -21,10 +17,13 @@ package com.kodilla.exception.test;
         public static void main(String[] args) {
 
             FirstChallenge firstChallenge = new FirstChallenge();
+            try {
+                double result = firstChallenge.divide(3, 3);
+                System.out.println(result);
+            } catch (ArithmeticException e){
+                System.out.println(e);
+            }
 
-            double result = firstChallenge.divide(3, 0);
-
-            System.out.println(result);
 
         }
 }
