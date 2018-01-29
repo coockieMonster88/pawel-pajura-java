@@ -22,19 +22,19 @@ public class ProductOrderService {
     }
 
     private boolean orderGame (final User user, final LocalDateTime orderDate, final LocalDateTime orderShipped) {
-        System.out.println("Game ordered by: " + user.getUserName() + " " + user.getUserLastName() + " @ day: " +orderDate.toString() + " and shipped to user at day: "
+        System.out.println("Game ordered by: " + user.getUserName() + " " + user.getUserLastName() + " @ day: " +orderDate.toString() + " and shipped to deliver at day: "
                 + orderShipped.toString());
         return true;
     }
 
     private boolean orderBook (final  User user, final LocalDateTime orderDate, final LocalDateTime orderShipped) {
         System.out.println("Book ordered by: " + user.getUserName() + " " + user.getUserLastName() + "@day " + orderDate.toString()
-         + " and sipped to user @ day: " + orderShipped.toString());
+         + " and sipped to deliver @ day: " + orderShipped.toString());
         return true;
     }
     private boolean orderMovies (final User user, final LocalDateTime orderDate, final LocalDateTime orderSipped) {
         System.out.println("Movie ordered by: " + user.getUserName() + " " + user.getUserLastName() + "@day " + orderDate.toString()
-        + " and shipped to user @ day: " + orderSipped.toString());
+        + " and shipped to deliver @ day: " + orderSipped.toString());
         return true;
     }
 
