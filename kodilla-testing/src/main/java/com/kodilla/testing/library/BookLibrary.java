@@ -18,10 +18,9 @@ public class BookLibrary {
 
         return bookList;
     }
-    public ArrayList<Book> listBooksInHandsOf (LibraryUser libraryUser) {
-        ArrayList<LibraryUser> users = new ArrayList<LibraryUser>();
-        LibraryUser user = new LibraryUser("Jan","Kowalski", "11111111111");
-        users.add(user);
-        return (ArrayList<Book>) libraryDatabase.listBooksInHandsOf(users);
+    public List<Book> listBooksInHandsOf (LibraryUser libraryUser) {
+        List<LibraryUser> libraryUsers = new ArrayList<>();
+        libraryUsers.add(libraryUser);
+        return  libraryDatabase.listBooksInHandsOf(libraryUsers);
     }
 }

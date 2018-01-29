@@ -20,9 +20,9 @@ public class ForumStatsTestSuite {
 
         when(mockStats.commentsCount()).thenReturn(30);
         List<String> userList = new ArrayList<>();
-//        userList.add("Jan Kowalski");
-//        userList.add("Anna Kowalska");
-//        userList.add("Piotr Kowalski");
+        userList.add("Jan Kowalski");
+        userList.add("Anna Kowalska");
+        userList.add("Piotr Kowalski");
         when(mockStats.usersNames()).thenReturn(userList);
 
         when(mockStats.postsCount()).thenReturn(1000);
@@ -48,14 +48,25 @@ public class ForumStatsTestSuite {
         //Given
         Statistics mockStats = mock(Statistics.class);
         ForumStats forumStats = new ForumStats(mockStats);
+        List<String> userList = new ArrayList<>();
+        userList.add("Jan Kowalski");
+        userList.add("Anna Kowalska");
+        userList.add("Piotr Kowalski");
+        when(mockStats.usersNames()).thenReturn(userList);
 
         when(mockStats.postsCount()).thenReturn(1000);
 
         //When
         forumStats.calculateAdvStatistics();
 
-        //Given
+        //Then
+        Assert.assertEquals(0, forumStats.getCommentsCount());
+        Assert.assertEquals(1000, forumStats.getPostsCount());
+        Assert.assertEquals(3, forumStats.getUsersCount());
+        Assert.assertEquals(0, forumStats.getCommentsPerPost(), 0);
+        Assert.assertEquals(333, forumStats.getPostsPerUser(),1);
         Assert.assertEquals(1000,forumStats.getPostsCount());
+
 
     }
 
@@ -64,14 +75,23 @@ public class ForumStatsTestSuite {
         //Given
         Statistics mockStats = mock(Statistics.class);
         ForumStats forumStats = new ForumStats(mockStats);
-
+        List<String> userList = new ArrayList<>();
+        userList.add("Jan Kowalski");
+        userList.add("Anna Kowalska");
+        userList.add("Piotr Kowalski");
+        when(mockStats.usersNames()).thenReturn(userList);
         when(mockStats.commentsCount()).thenReturn(0);
 
         //When
         forumStats.calculateAdvStatistics();
 
         //Then
-        Assert.assertEquals(0,forumStats.getCommentsCount());
+        Assert.assertEquals(30, forumStats.getCommentsCount());
+        Assert.assertEquals(0, forumStats.getPostsCount());
+        Assert.assertEquals(3, forumStats.getUsersCount());
+        Assert.assertEquals(0, forumStats.getCommentsPerPost(), 0);
+        Assert.assertEquals(10, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(0, forumStats.getPostsPerUser(),0);
 
     }
     @Test
@@ -79,15 +99,25 @@ public class ForumStatsTestSuite {
         //Given
         Statistics mockStats = mock(Statistics.class);
         ForumStats forumStats = new ForumStats(mockStats);
-
-        when(mockStats.commentsCount()).thenReturn(1001);
-        when(mockStats.postsCount()).thenReturn(1002);
+        List<String> userList = new ArrayList<>();
+        userList.add("Jan Kowalski");
+        userList.add("Anna Kowalska");
+        userList.add("Piotr Kowalski");
+        when(mockStats.usersNames()).thenReturn(userList);
+        when(mockStats.commentsCount()).thenReturn(6);
+        when(mockStats.postsCount()).thenReturn(6);
 
         //When
         forumStats.calculateAdvStatistics();
 
         //Then
-        Assert.assertEquals(1, forumStats.getCommentsPerPost(),0);
+        Assert.assertEquals(6, forumStats.getCommentsCount());
+        Assert.assertEquals(6, forumStats.getPostsCount());
+        Assert.assertEquals(3, forumStats.getUsersCount());
+        Assert.assertEquals(1, forumStats.getCommentsPerPost(), 0);
+        Assert.assertEquals(1, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(1, forumStats.getPostsPerUser(),0);
+
     }
 
     @Test
@@ -95,15 +125,25 @@ public class ForumStatsTestSuite {
         //Given
         Statistics mockStats = mock(Statistics.class);
         ForumStats forumStats = new ForumStats(mockStats);
-
-        when(mockStats.commentsCount()).thenReturn(999);
-        when(mockStats.postsCount()).thenReturn(1000);
+        List<String> userList = new ArrayList<>();
+        userList.add("Jan Kowalski");
+        userList.add("Anna Kowalska");
+        userList.add("Piotr Kowalski");
+        when(mockStats.usersNames()).thenReturn(userList);
+        when(mockStats.commentsCount()).thenReturn(3);
+        when(mockStats.postsCount()).thenReturn(3);
 
         //When
         forumStats.calculateAdvStatistics();
 
         //Then
-        Assert.assertEquals(1, forumStats.getCommentsPerPost(),0);
+        Assert.assertEquals(3, forumStats.getCommentsCount());
+        Assert.assertEquals(3, forumStats.getPostsCount());
+        Assert.assertEquals(3, forumStats.getUsersCount());
+        Assert.assertEquals(1, forumStats.getCommentsPerPost(), 0);
+        Assert.assertEquals(1, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(1, forumStats.getPostsPerUser(),0);
+
     }
 
     @Test
@@ -119,24 +159,13 @@ public class ForumStatsTestSuite {
         forumStats.calculateAdvStatistics();
 
         //Then
-        Assert.assertEquals(0,forumStats.getUsersCount());
+        Assert.assertEquals(0, forumStats.getCommentsCount());
+        Assert.assertEquals(0, forumStats.getPostsCount());
+        Assert.assertEquals(0, forumStats.getUsersCount());
+        Assert.assertEquals(0, forumStats.getCommentsPerPost(), 0);
+        Assert.assertEquals(0, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(0, forumStats.getPostsPerUser(),0);
 
     }
-    @Test
-    public void calculateAdvStatistics100Users () {
-        //Given
-        Statistics mockSTats = mock(Statistics.class);
-        ForumStats forumStats = new ForumStats(mockSTats);
-        List<String> userList = new ArrayList<>();
-        userList.add("Jan Kowalski");
-        //adding another 99 objects
 
-        when(mockSTats.usersNames()).thenReturn(userList);
-
-        //When
-        forumStats.calculateAdvStatistics();
-
-        //Then
-        Assert.assertEquals(100, forumStats.getUsersCount());
-    }
 }

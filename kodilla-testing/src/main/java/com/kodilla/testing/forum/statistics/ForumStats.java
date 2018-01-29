@@ -42,8 +42,13 @@ public class ForumStats {
         this.usersCount = statistics.usersNames().size();
         this.commentsCount=statistics.commentsCount();
         this.postsCount=statistics.postsCount();
-        this.postsPerUser=this.postsCount/this.usersCount;
-        this.commentsPerUser=this.commentsCount/this.usersCount;
+        if (this.usersCount > 0) {
+            this.postsPerUser = this.postsCount / this.usersCount;
+            this.commentsPerUser = this.commentsCount / this.usersCount;
+        } else {
+            this.postsPerUser = 0;
+            this.commentsPerUser=0;
+        }
         if(this.postsCount > 0) {
             this.commentsPerPost = this.commentsCount / this.postsCount;
         } else {
