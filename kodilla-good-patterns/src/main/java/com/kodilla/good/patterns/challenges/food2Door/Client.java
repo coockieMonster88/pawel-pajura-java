@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.food2Door;
 
-public class Client implements MailService {
+public class Client  {
 
     private String clientName;
     private String clientSurname;
@@ -44,14 +44,4 @@ public class Client implements MailService {
         return result;
     }
 
-
-    @Override
-    public String mailReceiver(Deliver deliver) {
-        return System.out.println("Incoming mail from: " + deliver.getUserName().toString() + deliver.getUserSurname().toString());
-    }
-
-    @Override
-    public void mailDeliver() {
-
-    }
 }

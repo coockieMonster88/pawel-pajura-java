@@ -20,7 +20,6 @@ public class ProductOrderService {
                 return false;
         }
     }
-
     private boolean orderGame (final User user, final LocalDateTime orderDate, final LocalDateTime orderShipped) {
         System.out.println("Game ordered by: " + user.getUserName() + " " + user.getUserLastName() + " @ day: " +orderDate.toString() + " and shipped to deliver at day: "
                 + orderShipped.toString());
