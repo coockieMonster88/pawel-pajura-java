@@ -33,13 +33,13 @@ public class ForumStatsTestSuite {
 
         //Given
         Assert.assertEquals(30, forumStats.getCommentsCount());
-        Assert.assertEquals(0, forumStats.getPostsCount());
+        Assert.assertEquals(1000, forumStats.getPostsCount());
         Assert.assertEquals(3, forumStats.getUsersCount());
         Assert.assertEquals(0, forumStats.getCommentsPerPost(), 0);
         Assert.assertEquals(10, forumStats.getCommentsPerUser(),0);
-        Assert.assertEquals(0, forumStats.getPostsPerUser(),0);
+        Assert.assertEquals(333, forumStats.getPostsPerUser(),0);
         Assert.assertEquals(1000,forumStats.getPostsCount());
-        Assert.assertEquals(0,forumStats.getUsersCount());
+        Assert.assertEquals(3,forumStats.getUsersCount());
 
     }
 
@@ -86,11 +86,11 @@ public class ForumStatsTestSuite {
         forumStats.calculateAdvStatistics();
 
         //Then
-        Assert.assertEquals(30, forumStats.getCommentsCount());
+        Assert.assertEquals(0, forumStats.getCommentsCount());
         Assert.assertEquals(0, forumStats.getPostsCount());
         Assert.assertEquals(3, forumStats.getUsersCount());
         Assert.assertEquals(0, forumStats.getCommentsPerPost(), 0);
-        Assert.assertEquals(10, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(0, forumStats.getCommentsPerUser(),0);
         Assert.assertEquals(0, forumStats.getPostsPerUser(),0);
 
     }
@@ -115,8 +115,8 @@ public class ForumStatsTestSuite {
         Assert.assertEquals(6, forumStats.getPostsCount());
         Assert.assertEquals(3, forumStats.getUsersCount());
         Assert.assertEquals(1, forumStats.getCommentsPerPost(), 0);
-        Assert.assertEquals(1, forumStats.getCommentsPerUser(),0);
-        Assert.assertEquals(1, forumStats.getPostsPerUser(),0);
+        Assert.assertEquals(2, forumStats.getCommentsPerUser(),0);
+        Assert.assertEquals(2, forumStats.getPostsPerUser(),0);
 
     }
 

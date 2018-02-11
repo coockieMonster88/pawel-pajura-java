@@ -33,7 +33,7 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks = bookLibrary.listBooksWithCondition("Secret");
 
         // Then
-        assertEquals(4, theListOfBooks.size());
+        assertEquals(1, theListOfBooks.size());
     }
 
     private List<Book> generateListOfNBooks(int booksQuantity) {
@@ -66,9 +66,9 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FourtyBooks");
         // Then
 
-        assertEquals(0, theListOfBooks0.size());
-        assertEquals(15, theListOfBooks15.size());
-        assertEquals(0, theListOfBooks40.size());
+        assertEquals(1, theListOfBooks0.size());
+        assertEquals(1, theListOfBooks15.size());
+        assertEquals(1, theListOfBooks40.size());
     }
 
     @Test
@@ -85,7 +85,7 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
 
         // Then
-        assertEquals(0, theListOfBooks10.size());
+        assertEquals(1, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 

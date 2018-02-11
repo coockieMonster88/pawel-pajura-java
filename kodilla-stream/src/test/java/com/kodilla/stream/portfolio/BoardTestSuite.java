@@ -146,8 +146,8 @@ public class BoardTestSuite {
 
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("Processing"));
-        project.getTaskLists().stream()
+        inProgressTasks.add(new TaskList("In progress"));
+        double avg = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> t.getCreated())
@@ -157,7 +157,7 @@ public class BoardTestSuite {
                 .orElse(0.0);
 
         //Then
-        Assert.assertEquals(1,project);
+        Assert.assertEquals(10,avg, 0);
 
 
     }
