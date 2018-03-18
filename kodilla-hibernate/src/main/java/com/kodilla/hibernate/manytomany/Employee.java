@@ -1,24 +1,31 @@
 package com.kodilla.hibernate.manytomany;
 
 import javax.persistence.*;
+import javax.persistence.criteria.From;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+@NamedQueries({
+        @NamedQuery(
+                name="Employee.retrieveEmployeesWithNames",
+                query = "FROM Employee WHERE lastName = :LASTNAME"
+        )
+})
 
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
     private int id;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private List<Company> companies = new ArrayList<>();
 
     public Employee() {
     }
 
     public Employee(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
     }
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -45,13 +52,13 @@ public class Employee {
     @NotNull
     @Column(name = "FIRSTNAME")
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     @NotNull
     @Column(name = "LASTNAME")
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     private void setId(int id) {
@@ -59,10 +66,10 @@ public class Employee {
     }
 
     private void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     private void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 }
